@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Local Videos and Photos</title>
+	<style>
+		.media-container {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px;
+		}
+		.media-item {
+			flex: 1 1 300px;
+			max-width: 320px;
+		}
+		video, img {
+			width: 100%;
+			height: auto;
+			display: block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Local Videos and Photos</h1>
+	<div class="media-container" id="mediaContainer"></div>
+
+	<script>
+		// Array of local video file paths
+		const videos = [
+			'video1.mp4',
+			'video2.mp4'
+		];
+
+		// Array of local image file paths
+		const photos = [
+			'birthday1.JPG',
+			'birthday2.JPG',
+			'birthday3.JPG',
+			'birthday4.JPG',
+			'birthday5.JPG',
+			'birthday6.JPG',
+			'birthday7.JPG',
+			'birthday8.JPG',
+			'birthday9.JPG',
+			'birthday10.JPG',
+			'birthday11.JPG',
+			'birthday12.JPG',
+			'birthday13.JPG',
+		];
+
+		const container = document.getElementById('mediaContainer');
+
+		// Render videos
+		videos.forEach(src => {
+			const div = document.createElement('div');
+			div.className = 'media-item';
+			div.innerHTML = `
+				<video controls>
+					<source src="${src}" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			`;
+			container.appendChild(div);
+		});
+
+		// Render photos
+		photos.forEach(src => {
+			const div = document.createElement('div');
+			div.className = 'media-item';
+			div.innerHTML = `<img src="${src}" alt="Photo">`;
+			container.appendChild(div);
+		});
+
+		// prevent images and videos from displaying in the browser
+		
+	</script>
+</body>
+</html>
